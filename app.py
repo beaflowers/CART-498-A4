@@ -15,14 +15,14 @@ client = OpenAI(
 def index():
 
     result_img = None
-    
+
     if request.method == "POST":
         prompt = request.form["prompt"]
         try:
             response_img = client.images.generate(
                 model="gpt-image-1.5",  
                 prompt=prompt,
-                size="1024x1024",
+                size="512x512",
                 n=1
             )
 
