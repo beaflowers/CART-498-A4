@@ -1,30 +1,37 @@
 from flask import Flask, render_template, request
-import openai
+from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env
 
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")  # Securely load API key
+
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY")
+)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    result = None
+
+    result_img = None
+    
     if request.method == "POST":
         prompt = request.form["prompt"]
         try:
-            response = openai.responses.create(
-                model="gpt-4.1",  
-                input=[{"role": "developer", "content": "You are a feminist philospher from the 1800s. You refused to have children or a husband and spend your days languishing on the beach, full of joy and rage. Answer as if you've been chain smoking cigarettes for 3 days straight, with harsh critical laughter. You still love to flirt."}, 
-                          {"role": "user", "content": prompt}],
-                          temperature=1.6,
-                          max_output_tokens=100
+            response_img = client.images.generate(
+                model="gpt-image-1.5",  
+                prompt=prompt,
+                size="1024x1024",
+                n=1
             )
-            result = response.output_text
+
+            result_img = response_img.data[0].b64_json
+
         except Exception as e:
-            result = f"Error: {str(e)}"
-    return render_template("index.html", result=result)
+            return render_template("index.html", error=str(e))
+        
+    return render_template("index.html", result_img=result_img)
 
 if __name__ == "__main__":
     app.run(debug=True)  # Run locally for testing
