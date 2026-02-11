@@ -20,9 +20,11 @@ def index():
         prompt = request.form["prompt"]
         try:
             response_img = client.images.generate(
-                model="gpt-image-1.5",  
+                model="gpt-image-1-mini",  
                 prompt=prompt,
                 size="auto",
+                moderation="low",
+                quality="low",
                 n=1
             )
 
