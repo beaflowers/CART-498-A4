@@ -22,12 +22,12 @@ def index():
         prompt = f"""
         {user_prompt}
 
-        Everything should be washed out, almost monotone, 
-        but with some object elements such as figures, actions and settings being vivid, sharp and bright. 
+        Everything should be washed out, like a watercolor painting. Not monotone but colorful.
+        Some object elements such as figures, actions and settings are vivid, neon, sharp and bright. 
         Pick from one of the Jungian archtypes (Innocent, Orphan, Hero, Caregiver, Explorer, Rebel, Lover, Creator, Jester, Sage, Magician, Ruler) 
         that best suits the description, and apply some imagery from that archtype.
 
-        Make everything very dreamlike and surreal. 
+        Make everything very dreamlike and surreal. It should feel disorienting and wild.
         """
 
         try:
