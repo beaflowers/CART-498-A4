@@ -22,12 +22,19 @@ def index():
         prompt = f"""
         {user_prompt}
 
-        Everything should be washed out, like a watercolor painting. Not monotone but colorful.
-        Some object elements such as figures, actions and settings are vivid, neon, sharp and bright. 
-        Pick from one of the Jungian archtypes (Innocent, Orphan, Hero, Caregiver, Explorer, Rebel, Lover, Creator, Jester, Sage, Magician, Ruler) 
-        that best suits the description, and apply some imagery from that archtype.
+        Use a visual style that is washed out, like a watercolor painting. Not monotone, somewhat colorful, soft and flowing.
+        Some object elements such as figures and nouns should be vivid, neon, and bright, with sharp edges. 
 
-        Make everything very dreamlike and surreal. It should feel disorienting and wild.
+        Incorporate Jungian archtypes into the image as their own elements: 
+        - Shadow figures lurking behind main characters, partially obscured by mist or darkness.
+        - Mirrors reflecting distorted, warped versions of objects or characters, creating a sense of duality.
+        - Circular patterns or mandalas subtly appearing in the background to represent the Self.
+
+        Add dreamlike distortions such as warped perspectives, impossible angles, and twisting landscapes 
+        and surreal lighting: soft glows, mist, shafts of light, and muted shadows creating an uncanny atmosphere.
+        If relevant to the dream description, add symbolic objects: clocks, keys, stairs, doors, candles, or stairways leading nowhere.
+        Composition should feel disorienting, layered, and wild.
+
         """
 
         try:
