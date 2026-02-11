@@ -4,7 +4,7 @@ It was trickier to implement Jungian ideas than I thought it would be - image ge
 
 ### How To Use the Dream Machine
 
-Simply type in your dream, then press "generate image". Describe yourself, if you are a figure in the dream, otherwise you will appear as a man. It tends to take a while to load, so sit back and reflect for a moment. 
+Simply type in your dream, then press "generate image". Describe yourself, if you are a figure in the dream, otherwise you will be assigned a body by the image. It tends to take a while to load, so sit back and reflect for a moment. 
 
 ### Reflections
 
