@@ -17,7 +17,19 @@ def index():
     result_img = None
 
     if request.method == "POST":
-        prompt = request.form["prompt"]
+        user_prompt = request.form["prompt"]
+
+        prompt = f"""
+        {user_prompt}
+
+        Everything should be washed out, almost monotone, 
+        but with some object elements such as figures, actions and settings being vivid, sharp and bright. 
+        Pick from one of the Jungian archtypes (Innocent, Orphan, Hero, Caregiver, Explorer, Rebel, Lover, Creator, Jester, Sage, Magician, Ruler) 
+        that best suits the description, and apply some imagery from that archtype.
+
+        Make everything very dreamlike and surreal. 
+        """
+
         try:
             response_img = client.images.generate(
                 model="gpt-image-1-mini",  
