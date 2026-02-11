@@ -11,7 +11,7 @@
     <!-- Custom Styles for 1900s Therapy Office Vibe -->
     <style>
         body {
-            background-color: #f4efe6; /* soft parchment */
+            background-color: #212335; /* soft parchment */
             font-family: "Garamond", "Times New Roman", serif; /* classic serif */
             color: #3b2f2f; /* dark brown text */
         }
@@ -26,8 +26,7 @@
             font-weight: 700;
             font-size: 3rem;
             margin-bottom: 40px;
-            color: #5a4033;
-            text-shadow: 0.5px 0.5px 0.5px #dcd2c0;
+            color: #c07a57;
         }
 
         form {
@@ -46,14 +45,14 @@
         }
 
         input[type="submit"] {
-            background-color: #a67c52;
+            background-color: #c07a57;
             border-color: #8b6042;
             font-weight: bold;
             font-family: "Garamond", serif;
         }
 
         input[type="submit"]:hover {
-            background-color: #8b6042;
+            background-color: #905225;
         }
 
         .alert {
@@ -73,7 +72,7 @@
 </head>
 <body>
     <div class="container text-center">
-        <h1>Describe Your Dream</h1>
+        <h1><i>Describe Your Dream...</i></h1>
         <form method="POST">
             <div class="mb-3">
                 <textarea name="prompt" rows="4" class="form-control" placeholder="Enter your dream..."></textarea>
@@ -84,7 +83,6 @@
         </form>
         
         {% if result_img %}
-            <h3 class="mt-4">Your Dream Image:</h3>
             <img src="data:image/png;base64,{{ result_img }}" alt="Generated Image" class="img-fluid">
         {% endif %}
 
