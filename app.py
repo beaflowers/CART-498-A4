@@ -11,10 +11,19 @@ client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY")
 )
 
+def _response_text(resp):
+    if hasattr(resp, "output_text") and resp.output_text:
+        return resp.output_text
+    try:
+        return resp.output[0].content[0].text
+    except Exception:
+        return ""
+
 @app.route("/", methods=["GET", "POST"])
 def index():
 
     result_img = None
+    analysis_text = None
 
     if request.method == "POST":
         user_prompt = request.form["prompt"]
@@ -48,11 +57,20 @@ def index():
             )
 
             result_img = response_img.data[0].b64_json
+            analysis_response = client.responses.create(
+                model="gpt-4.1-mini",
+                input=[
+                    {"role": "system", "content": "You are a Jungian dream analyst. Give a concise analysis (4-6 sentences) in plain language."},
+                    {"role": "user", "content": user_prompt},
+                ],
+                max_output_tokens=220,
+            )
+            analysis_text = _response_text(analysis_response).strip()
 
         except Exception as e:
             return render_template("index.html", error=str(e))
         
-    return render_template("index.html", result_img=result_img)
+    return render_template("index.html", result_img=result_img, analysis_text=analysis_text)
 
 if __name__ == "__main__":
     app.run(debug=True)  # Run locally for testing

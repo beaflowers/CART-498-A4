@@ -86,6 +86,13 @@
             <img src="data:image/png;base64,{{ result_img }}" alt="Generated Image" class="img-fluid">
         {% endif %}
 
+        {% if analysis_text %}
+            <div class="alert mt-4 text-start">
+                <strong>Dream Analysis</strong>
+                <div class="mt-2">{{ analysis_text }}</div>
+            </div>
+        {% endif %}
+
         {% if error %}
             <div class="alert mt-4">{{ error }}</div>
         {% endif %}
